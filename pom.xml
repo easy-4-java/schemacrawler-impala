@@ -5,7 +5,7 @@
 	<groupId>io.github.hiwepy</groupId>
 	<artifactId>schemacrawler-impala</artifactId>
 	<description>SchemaCrawler For Apache Impala</description>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.x.20260630-SNAPSHOT</version>
 	<name>${project.groupId}:${project.artifactId}</name>
 	<url>https://github.com/hiwepy/${project.artifactId}</url>
 	<packaging>jar</packaging>
