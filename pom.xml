@@ -372,22 +372,22 @@
 		<hive.version>3.1.2</hive.version>
 		<impala-jdbc.version>2.6.3</impala-jdbc.version>
 		<hadoop.version>3.2.1</hadoop.version>
-		<java.version>1.8</java.version>
+		<java.version>17</java.version>
 		<junit.version>4.12</junit.version>
 		<maven.version>3.0</maven.version>
-		<maven-clean-plugin.version>3.0.0</maven-clean-plugin.version>
-		<maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
+		<maven-clean-plugin.version>4.0.0</maven-clean-plugin.version>
+		<maven-compiler-plugin.version>4.0.0</maven-compiler-plugin.version>
 		<maven-dependency-plugin.version>3.0.1</maven-dependency-plugin.version>
-		<maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
-		<maven-enforcer-plugin.version>3.0.0-M1</maven-enforcer-plugin.version>
-		<maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
-		<maven-install-plugin.version>2.5.2</maven-install-plugin.version>
-		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
-		<maven-javadoc-plugin.version>3.0.0</maven-javadoc-plugin.version>
-		<maven-release-plugin.version>2.5.3</maven-release-plugin.version>
-		<maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
-		<maven-surefire-plugin.version>2.22.1</maven-surefire-plugin.version>
-		<maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+		<maven-deploy-plugin.version>4.0.0</maven-deploy-plugin.version>
+		<maven-enforcer-plugin.version>3.6.3</maven-enforcer-plugin.version>
+		<maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
+		<maven-install-plugin.version>4.0.0</maven-install-plugin.version>
+		<maven-jar-plugin.version>4.0.0</maven-jar-plugin.version>
+		<maven-javadoc-plugin.version>3.12.0</maven-javadoc-plugin.version>
+		<maven-release-plugin.version>3.3.1</maven-release-plugin.version>
+		<maven-resources-plugin.version>4.0.0</maven-resources-plugin.version>
+		<maven-surefire-plugin.version>3.6.0</maven-surefire-plugin.version>
+		<maven-source-plugin.version>4.0.0</maven-source-plugin.version>
 		<maven-nexus-staging-plugin.version>1.6.8</maven-nexus-staging-plugin.version>
 		<schemacrawler.version>16.7.2</schemacrawler.version>
 	</properties>
