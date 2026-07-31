@@ -364,7 +364,6 @@
 		</profile>
 	</profiles>
 
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<hive.version>3.1.2</hive.version>
@@ -410,6 +409,5 @@
 		    <version>${impala-jdbc.version}</version>
 		</dependency>
 	</dependencies>
-
 
 </project>
