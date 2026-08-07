@@ -4,6 +4,8 @@
 
 [![Java](https://img.shields.io/badge/Java-21-orange)](https://github.com/easy-4-java/schemacrawler-impala) [![License](https://img.shields.io/badge/license-Apache%202.0-green)](./LICENSE)
 
+schemacrawler-impala is a SchemaCrawler database plug-in that registers
+
 ## Table of Contents
 
 - [1. Project Overview](#1-project-overview)
