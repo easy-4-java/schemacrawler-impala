@@ -4,6 +4,8 @@
 
 [![Java](https://img.shields.io/badge/Java-8-orange)](https://github.com/easy-4-java/schemacrawler-impala) [![License](https://img.shields.io/badge/license-Apache%202.0-green)](./LICENSE)
 
+schemacrawler-impala 是 SchemaCrawler 的数据库插件，将 Apache Impala 注册为受支持的数据库类型。
+
 ## 目录
 
 - [1. 项目概述](#1-项目概述)
