@@ -23,7 +23,7 @@ import java.sql.SQLException;
 
 import org.junit.Test;
 
-public class ImpalaTest {
+public class ImpalaIntegration {
 
 	/*
 	 * – impala.driver=org.apache.hive.jdbc.HiveDriver –
