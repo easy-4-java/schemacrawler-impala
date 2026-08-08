@@ -1,4 +1,7 @@
 package schemacrawler.server.impala;
+/**
+ * @author <a href="https://github.com/loong10k">@Loong Wan</a>
+ */
 
 import java.io.IOException;
 import java.util.function.Predicate;
