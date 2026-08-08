@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import schemacrawler.tools.databaseconnector.DatabaseConnectorRegistry;
 
-public class TestBundledDistributions {
+public class TestBundledDistributionsIntg {
 
 	@Test
 	public void testPlugin_hive() throws Exception {
