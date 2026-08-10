@@ -16,7 +16,7 @@ import schemacrawler.tools.iosource.ClasspathInputResource;
  * definitions, and exposes command-line options for selecting the server, host, port, and database.
  * URLs are accepted when they use the {@code jdbc:hive2:} scheme.</p>
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see DatabaseConnector
  * @see DatabaseServerType
