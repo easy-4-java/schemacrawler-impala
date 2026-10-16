@@ -22,16 +22,18 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Predicate;
+import javax.tools.JavaCompiler;
+import javax.tools.ToolProvider;
 
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
@@ -84,18 +86,6 @@ public class ImpalaDatabaseConnectorTest {
     private static final String DRIVER_SIMPLE_NAME = DRIVER_FQCN.substring(DRIVER_FQCN.lastIndexOf('.') + 1);
 
     /**
-     * The base64-encoded bytecode of an empty {@code com.cloudera.impala.jdbc41.Driver}
-     * stub class compiled with {@code javac --release 21}. The class declares a single
-     * public no-arg constructor and nothing else, which is enough to satisfy
-     * {@code Class.forName(...)}.
-     */
-    private static final String STUB_DRIVER_BASE64 =
-            "yv66vgAAAEEADQoAAgADBwAEDAAFAAYBABBqYXZhL2xhbmcvT2JqZWN0AQAGPGluaXQ+AQADKClWBwAIAQ"
-                    + "AhY29tL2Nsb3VkZXJhL2ltcGFsYS9qZGJjNDEvRHJpdmVyAQAEQ29kZQEAD0xpbmVOdW1iZXJUYWJsZQ"
-                    + "EAClNvdXJjZUZpbGUBAAtEcml2ZXIuamF2YQAhAAcAAgAAAAAAAQABAAUABgABAAkAAAAdAAEAAQAAAA"
-                    + "UqtwABsQAAAAEACgAAAAYAAQAAAAMAAQALAAAAAgAM";
-
-    /**
      * Materialises the stub driver on the classpath before any test method runs.
      *
      * @throws Exception if the stub cannot be written to the build output directory
@@ -109,9 +99,22 @@ public class ImpalaDatabaseConnectorTest {
         }
         File driverFile = new File(packageDir, DRIVER_SIMPLE_NAME + ".class");
         if (!driverFile.exists()) {
-            byte[] bytes = Base64.getDecoder().decode(STUB_DRIVER_BASE64.getBytes(StandardCharsets.US_ASCII));
-            try (FileOutputStream fos = new FileOutputStream(driverFile)) {
-                fos.write(bytes);
+            JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
+            if (Objects.isNull(compiler)) {
+                throw new IllegalStateException("Tests require a JDK compiler");
+            }
+            File sourceFile = new File(packageDir, DRIVER_SIMPLE_NAME + ".java");
+            String source = "package " + DRIVER_PACKAGE + "; public class "
+                    + DRIVER_SIMPLE_NAME + " {}";
+            Files.write(sourceFile.toPath(), source.getBytes(StandardCharsets.UTF_8));
+            try {
+                int exitCode = compiler.run(null, null, null, "-d", classesDir.getAbsolutePath(),
+                        sourceFile.getAbsolutePath());
+                if (exitCode != 0) {
+                    throw new IllegalStateException("Cannot compile stub driver: " + exitCode);
+                }
+            } finally {
+                Files.deleteIfExists(sourceFile.toPath());
             }
         }
     }
